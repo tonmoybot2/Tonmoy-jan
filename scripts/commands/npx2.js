@@ -19,14 +19,14 @@ handleEvent: async function({ api, event, client, __GLOBAL }) {
   const axios = require('axios')
 const media = (
     await axios.get(
-      'https://i.imgur.com/Yc2atQe.mp4',
+      'https://i.imgur.com/rVw2Ivt.mp4',
       { responseType: 'stream' }
     )
   ).data;
 
-	if (body.indexOf("Love")==0 || body.indexOf("❤️‍🔥")==0 || body.indexOf("💌")==0 || body.indexOf("💘")==0 || body.indexOf("💟")==0 || body.indexOf("I love u")==0 || body.indexOf("I love you")==0 || body.indexOf("valobashi")==0 || body.indexOf("Valobashi")==0 || body.indexOf("🖤")==0) {
+	if (body.indexOf("🔞")==0 || body.indexOf("Tonmoy")==0 || body.indexOf("tonmoy")==0 || body.indexOf("তন্ময়")==0 || body.indexOf("তন্ময়")==0 || body.indexOf("Tonmoy Chowdhury")==0 || body.indexOf("I love you")==0 || body.indexOf("@Tonmoy Chowdhury")==0 || body.indexOf("@tonmoy chowdhury")==0 || body.indexOf("🥀")==0) {
 		var msg = {
-				body: "ভালোবাসা সুন্দর🖤",
+				body: "ভালোবাসা সুন্দর। কিন্তু আমার বস 𝙏𝙊𝙉𝙈𝙊𝙔 𝘾𝙃𝙊𝙒𝘿𝙐𝙍𝙔  জন্য না 🙂",
 				attachment: media
 			}
 			api.sendMessage( msg, threadID, messageID);

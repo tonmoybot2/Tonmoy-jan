@@ -1,10 +1,11 @@
+
 module.exports.config = {
-  name: "mia", 
+  name: "🌼", 
   version: "1.0.0", 
   permission: 0,
   credits: "Nayan",
   description: "example",
-  prefix: true,
+  prefix: "noprefix",
   category: "Love", 
   usages: "text", 
   cooldowns: 5,
@@ -46,7 +47,7 @@ module.exports.run = async function({ api, event, args }) {
 	const axios = global.nodemodule["axios"];
 	let pathImg = __dirname + '/cache/trump.png';
 	var text = args.join(" ");
-	if (!text) return api.sendMessage("Enter the content of the comment on the board", threadID, messageID);
+	if (!text) return api.sendMessage("আসসালামু আলাইকুম প্রিয় এইটা হল আমার বস 𝙏𝙊𝙉𝙈𝙊𝙔 𝘾𝙃𝙊𝙒𝘿𝙐𝙍𝙔 বট গ্রুপ এখানে সবাই আসবা মজা করবা ভিডিও দেখবা আড্ডা দিবা কেউ বাজে আচরণ করবা না কেউ যদি আড্ডা বক্সে অ্যাড হতে চাও call এ সময় দিতে পারো তবে আমার বস 𝙏𝙊𝙉𝙈𝙊𝙔 𝘾𝙃𝙊𝙒𝘿𝙐𝙍𝙔 কে ইনবক্স কর  বস তন্ময় এর Id link👉👇 https://www.facebook.com/tonmoy221?mibextid=ZbWKwL আর আমাকে সবাই Bot বলে ডাকবেন", threadID, messageID);
 	let getPorn = (await axios.get(`https://i.postimg.cc/Jh86TFLn/Pics-Art-08-14-10-45-31.jpg`, { responseType: 'arraybuffer' })).data;
 	fs.writeFileSync(pathImg, Buffer.from(getPorn, 'utf-8'));
 	let baseImage = await loadImage(pathImg);

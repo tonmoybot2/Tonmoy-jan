@@ -54,7 +54,7 @@ module.exports.handleEvent = async ({ api, event }) => {
         }
 
         return api.sendMessage({
-            body: `${name} violated the word ${event.body}?\nWhy are you cursing at the bot?\n\nWarning: ${warnings[event.senderID]}/3`,
+            body: `${name} দয়া করে এই শব্দটি আপনি  এখানে লিখবেন না  ${event.body}?\nআপনি তিনবারের বেশি এটা লিখলে আমি আপনাকে রিমুভ করতে বাধ্য হব ?\n\nWarning: ${warnings[event.senderID]}/3`,
             mentions: [{
                 tag: name,
                 id: event.senderID

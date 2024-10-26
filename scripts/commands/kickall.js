@@ -5,7 +5,7 @@ module.exports.config = {
   credits: "Khánh Milo",
   description: "Kick out all the member inside of the group.",
   category: "group",
-  usages: "[]",
+  usages: "[kickall]",
   cooldowns: 3,
   prefix: true
 };
