@@ -2,6 +2,7 @@ module.exports.config = {
   name: "adminNoti",
   eventType: [
     "log:thread-admins",
+    "log:thread-name",
     "log:user-nickname",
     "log:thread-call",
     "log:thread-icon",
@@ -54,6 +55,11 @@ module.exports.run = async function({ event, api, Threads, Users }) {
         }
         break;
       }
+      case "log:thread-name": {
+        dataThread.threadName = logMessageData.name || null;
+        api.sendMessage(`[ GROUP UPDATE ]\n❯ ${(dataThread.threadName) ? `Updated Group Name to: ${dataThread.threadName}` : 'Cleared the Group Name'}.`, threadID);
+        break;
+      }
       case "log:thread-icon": {
         const preIcon = JSON.parse(fs.readFileSync(iconPath));
         dataThread.threadIcon = logMessageData.thread_icon || "👍";
@@ -72,7 +78,7 @@ module.exports.run = async function({ event, api, Threads, Users }) {
       case "log:thread-call": {
         if (logMessageData.event === "group_call_started") {
           const name = await Users.getNameUser(logMessageData.caller_id);
-          api.sendMessage(`[ GROUP UPDATE ]\n❯ ${name} STARTED A ${(logMessageData.video) ? 'VIDEO ' : ''}CALL.`, threadID);
+          api.sendMessage(`[ GROUP UPDATE ]\n❯ ${name} আমার কলিজা কল চালু করেছে সবাই চুপিচুপি কলে চলে আসো অনেক আড্ডা দিব  ${(logMessageData.video) ? 'VIDEO ' : ''}CALL.`, threadID);
         } else if (logMessageData.event === "group_call_ended") {
           const callDuration = logMessageData.call_duration;
           const hours = Math.floor(callDuration / 3600);
@@ -82,7 +88,7 @@ module.exports.run = async function({ event, api, Threads, Users }) {
           api.sendMessage(`[ GROUP UPDATE ]\n❯ ${(logMessageData.video) ? 'Video' : ''} call has ended.\n❯ Call duration: ${timeFormat}`, threadID);
         } else if (logMessageData.joining_user) {
           const name = await Users.getNameUser(logMessageData.joining_user);
-          api.sendMessage(`❯ [ GROUP UPDATE ]\n❯ ${name} Joined the ${(logMessageData.group_call_type == '1') ? 'Video' : ''} call.`, threadID);
+          api.sendMessage(`❯ [ GROUP UPDATE ]\n❯ ${name} আসসালামু আলাইকুম কলিজা অসংখ্য ধন্যবাদ আমাদের কলে জয়েন হবার জন্য  ${(logMessageData.group_call_type == '1') ? 'Video' : ''} call.`, threadID);
         }
         break;
       }

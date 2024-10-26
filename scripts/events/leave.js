@@ -20,11 +20,11 @@ module.exports.run = async function({ api, event, Users, Threads }) {
 
 	if (existsSync(path)) mkdirSync(path, { recursive: true });
 
-	(typeof data.customLeave == "undefined") ? msg = "তুই {name} গ্রুপে থাকার যোগ্য না আবাল .\n\n{type} " : msg = data.customLeave;
+	(typeof data.customLeave == "undefined") ? msg = "আসসালামু আলাইকুম  {name} আপনি যে গ্রুপ থেকে লিফট নিচ্ছেন আপনি তো নিতে পারবেন না কারণ আমি হলাম রোবট আমি আপনাকে আবার add করতে বাধ্য আপনি একটু কষ্ট করে Out লিখে রাখেন আপনাকে যে কোন এডমিন এসে গ্রুপ থেকে বের করে দিবে .\n\n{type} " : msg = data.customLeave;
 	msg = msg.replace(/\{name}/g, name).replace(/\{type}/g, type);
 
 	if (existsSync(gifPath)) formPush = { body: msg, attachment: createReadStream(gifPath) }
 	else formPush = { body: msg }
-	
+
 	return api.sendMessage(formPush, threadID);
 }
